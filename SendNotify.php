@@ -7,7 +7,6 @@ class SendNotify {
 			'name'=>'airkiss',
 			'key'=>'v1xF8GFxXXWH7sSmOFEbOMUxpmdbLOELlbujAqv0FvGAS',
 			'debug'=>1),
-/*
 		array(
 			'name'=>'vincent',
 			'key'=>'v1BAEzU10xoffnXC5rAtc5oCHp4uP8Q3WzujxX4iZZrk4',
@@ -20,7 +19,6 @@ class SendNotify {
 			'name'=>'recca',
 			'key'=>'v1RtoP0bsdS0QGNPkwCdTZgFU5mGOAnZXmuju8bckrfpY',
 			'debug'=>0),
-*/
 			);
 	function __construct($debug=false,$api_key=NULL)
 	{

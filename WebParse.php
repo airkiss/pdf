@@ -86,6 +86,9 @@ function FetchPDFByTime($DB,$pdf_pattern,$pdf_tailer,$created_at,$debug=false)
 $check_time = new DateTime(date('Y-m-d 00:00:00'));
 #$check_time = new DateTime(date('2014-03-22 00:00:00'));
 $created_at = $check_time->format('Y-m-d H:i:s');
+# 先掃
+ScanAllTable($DB,$URL_PATTERN,$URL_TAILER,$created_at);
+FetchPDFByTime($DB,$PDF_PATTERN,$PDF_TAILER,$created_at);
 $dbh = new PDO($DB['DSN'],$DB['DB_USER'], $DB['DB_PWD'],
 	array( PDO::ATTR_PERSISTENT => false));
 	# 錯誤的話, 就不做了
@@ -127,9 +130,6 @@ if(count($errorMsg) != 0)
 	unset($notify);
 }
 exit;
-# 先掃
-ScanAllTable($DB,$URL_PATTERN,$URL_TAILER,$created_at);
-FetchPDFByTime($DB,$PDF_PATTERN,$PDF_TAILER,$created_at)
 # 後抓
 #FetchPDF($DB,$PDF_PATTERN,$PDF_TAILER);	// All Do
 #FetchPDFByTime($DB,$PDF_PATTERN,$PDF_TAILER,'2014-3-9 0:0:0')

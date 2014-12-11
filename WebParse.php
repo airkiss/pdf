@@ -103,7 +103,7 @@ $DataArray = $PDFInfo->getAllPDF();
 $errorMsg = array();
 foreach($DataArray as $item)
 {
-	$librick_array = $ItemInfo->getLibrickID($item->no."-1");
+	$librick_array = $ItemInfo->getLibrickID($item->no);
 	$found = false;
 	if($librick_array != null)
 	{

@@ -8,7 +8,7 @@ class ItemInfo {
 		$this->dbh = $dbh;
 		# 錯誤的話, 就不做了
 		$this->dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-		$this->p1 = $this->dbh->prepare("select * from item_info where sub_name=:sub_name
+		$this->p1 = $this->dbh->prepare("select * from item_info where bricklink=:bricklink
 			and item_type not in ('Boxes','Instructions')");
 		$this->p2 = $this->dbh->prepare("update item_info set url=:url where id=:id");
 	}
@@ -21,7 +21,7 @@ class ItemInfo {
 	function getLibrickID($sub_name)
 	{
 		try {
-			$this->p1->bindParam(':sub_name',$sub_name,PDO::PARAM_STR);
+			$this->p1->bindParam(':bricklink',$sub_name,PDO::PARAM_STR);
 			$this->p1->execute();
 			if($this->p1->rowCount() == 0)
                                 return null;
